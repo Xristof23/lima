@@ -1,4 +1,4 @@
-# New Next Project
+# LiMA Little Math App
 
 ### Local Development
 

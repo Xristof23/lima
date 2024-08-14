@@ -1,13 +1,14 @@
 
 import Chance from "chance";
-
 const chance = new Chance();
 
-export default function Addition({upperLimit}) {
+export default function Addition({minimum, maximum})
 
-    const z = chance.integer({ min: 0, max: upperLimit });
-    console.log(z);
-    const x = chance.integer({ min: 0, max: z });
+{
+
+    //get numbers for addition (may add useEffect later)
+    const z = chance.integer({ min: minimum, max: maximum });
+    const x = chance.integer({ min: minimum, max: z });
     const y = z - x;
 
 
