@@ -1,15 +1,18 @@
-
+import { TaskItem } from "@/SharedStyledComponents";
 import Chance from "chance";
-
 const chance = new Chance();
 
-export default function Addition({upperLimit}) {
 
-    const z = chance.integer({ min: 0, max: upperLimit });
-    console.log(z);
-    const x = chance.integer({ min: 0, max: z });
+export default function Addition({minimum, maximum})
+
+{
+    
+    //get numbers for addition (may add useEffect later)
+    const z = chance.integer({ min: minimum, max: maximum });
+    const x = chance.integer({ min: minimum, max: z });
     const y = z - x;
 
+    const seedPart = `a${x}.${y}.${y}`;
 
-    return (<p>{x} + {y} = {z} </p>);
+    return (<TaskItem>{x} + {y} = {z} </TaskItem>);
 }
