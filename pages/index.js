@@ -6,6 +6,8 @@ import { TaskItem, StyledHeadline1, StyledHeadline2 } from "@/SharedStyledCompon
 import { useState } from "react";
 import styled from "styled-components";
 
+import Chance from "chance";
+const chance = new Chance();
 
 const StyledForm = styled.form`
   display: flex;
@@ -20,6 +22,18 @@ const OptionsLabel = styled.label`
   color: red;
 `;
 
+function generateAdditionArray (amount, minimum, maximum) {
+  const protoArray = [...Array(amount+1).keys()].slice(1);
+  const additionArray = protoArray.map((number) => {
+    const z = chance.integer({ min: minimum, max: maximum });
+    const x = chance.integer({ min: minimum, max: z });
+    const y = z - x;
+    const taskObject = {taskNumber: number, type: "addition", x, y, z};
+    return taskObject;
+  });
+  console.log(additionArray);
+}
+generateAdditionArray(10, 0, 100);
 
 export default function HomePage({}) {
   // const [taskCount, setTaskCount] = useState(0);
@@ -33,7 +47,7 @@ export default function HomePage({}) {
     <main>
       <StyledHeadline1>Hello math lover (hater)</StyledHeadline1>
       <StyledHeadline2>Options: </StyledHeadline2>
-      <form><OptionsLabel htmlFor="typeOC"  >Type of calculation: <select  aria-label="Choose type of calculation" id="typeOC" 
+      <StyledForm><OptionsLabel htmlFor="typeOC"  >Type of calculation: <select  aria-label="Choose type of calculation" id="typeOC" 
       name="typeOC" >  <option value="">--Please choose a calculation--</option>
       <option value="Addition">Addition</option>
       <option value="Subtraction">Subtraction</option>
@@ -44,7 +58,7 @@ export default function HomePage({}) {
       name="range-minimum" type="number" min="0" max="20"></input></OptionsLabel>
        <OptionsLabel htmlFor="range-maximum"  >up to: <input  aria-label="Adjust minimal number" id="range-maximum" 
       name="range-maximum" type="number" min="10" max="200" ></input></OptionsLabel>
-      </form>
+      </StyledForm>
       <h2>{type} </h2>
       <ol> {taskArray.map((number) =>  <Addition key={number} minimum maximum={80}/>)}</ol>
       <h2>Addition test </h2> 

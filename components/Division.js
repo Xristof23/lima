@@ -10,8 +10,6 @@ export default function Division({minimum, maximum})
 const factorMaximum = maximum / 10;
 
     const y = chance.integer({ min: Math.max(1, minimum), max: factorMaximum });
-    console.log("factotMax",factorMaximum);
-    console.log("y",y);
     const z = chance.integer({ min: minimum, max: factorMaximum });
     const x = y * z;
 
