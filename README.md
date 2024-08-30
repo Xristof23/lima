@@ -1,5 +1,7 @@
 # LiMA Little Math App
 
+Little app to generate math tasks to exercise. Still under construction.
+
 ### Local Development
 
 To work locally, please install the dependencies using `npm i` first.
