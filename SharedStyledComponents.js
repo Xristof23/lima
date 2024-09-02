@@ -9,7 +9,7 @@ const StyledHeadline1 = styled.h1`
 `;
 
 const StyledHeadline2 = styled.h2`
- text-align: center;
+ text-align: left;
   font-weight: 500;
   line-height: 1.5rem;
   font-size: 1.2rem;
