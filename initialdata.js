@@ -1,1 +1,1 @@
-export const initialSheetState = {numberOfTasks: 10, minimum: 0, maximum: 50, type: ["Addition"], taskParameters: [{taskNumber: 1, type: "addition", x: 17, y: 3, z: 20,}]}
+export const initialSheetState = {numberOfTasks: 10, minimum: 0, maximum: 50, sheetMode: "Addition", taskParameters: [{taskNumber: 1, calcType: "addition", x: 17, y: 3, z: 20,}]}
