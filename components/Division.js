@@ -18,3 +18,4 @@ const factorMaximum = maximum / 10;
 
     return (<TaskItem>{x} : {y} = {z} </TaskItem>);
 }
+
