@@ -11,7 +11,7 @@ export function generateAdditionArray(amount, minimum, maximum, calcType) {
       const x = chance.integer({ min: minimum, max: z });
         const y = z - x;
         const timeStamp = Date.now();
-      const taskId = `${calcType.slice(0, 1)}.${x}.${y}.${z}.${timeStamp}`
+      const taskId = `${calcType.slice(0, 1)}.${x}.${y}.${z}`
         const taskObject = { taskNumber: number, calcType, x, y, z, taskId };
       return taskObject;
     });

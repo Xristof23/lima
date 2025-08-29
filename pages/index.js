@@ -28,7 +28,6 @@ const SheetSection = styled.section`
   max-height: 600px;
   margin: 0.5rem;
   border-radius: 6px;
-  // justify-content: center;
 `;
 const GridElement = styled.div`
   display: flex;
@@ -79,7 +78,7 @@ export default function HomePage({ }) {
 
   // wird abhängig von button bzw state oder bleibt als initial?
   useEffect(() => {
-    setSheetParameters({ ...sheetParameters, taskParameters: generateAdditionArray(10, 0, 50, sheetMode) });
+    setSheetParameters({ ...sheetParameters, taskParameters: generateAdditionArray(10, 0, 10, sheetMode) });
     // console.log(taskParameters);
   }, []);
   
@@ -120,7 +119,8 @@ export default function HomePage({ }) {
       <OptionsLabel htmlFor="range-minimum"  >Range from: <input  aria-label="Adjust minimal number" id="range-minimum" 
       name="range-minimum" type="number" min="0" max="20"></input></OptionsLabel>
        <OptionsLabel htmlFor="range-maximum"  >up to: <input  aria-label="Adjust minimal number" id="range-maximum" 
-      name="range-maximum" type="number" min="10" max="200" ></input></OptionsLabel>
+          name="range-maximum" type="number" min="10" max="200" ></input></OptionsLabel>
+        <button type="button" onClick={()=>console.log("go")}>Go</button>
       </StyledForm>
       <SheetSection>
         <GridElement>
@@ -129,7 +129,9 @@ export default function HomePage({ }) {
         <GridElement>
           <StyledHeadline2>Result / Control</StyledHeadline2>
         </GridElement>
-        <GridElement> <ol> {taskParameters.map((task) => <FormatTask key={task.taskId} calcType={sheetMode} x={task.x} y={task.y} z={task.z} />)}</ol>
+        <GridElement>
+          <UnorderedList> {taskParameters.map((task) => <FormatTask key={task.taskId} calcType={sheetMode} x={task.x} y={task.y} z={task.z} taskId={task.taskId} />)}
+          </UnorderedList>
         </GridElement>
         <GridElement>
           <UnorderedList> {taskParameters.map((task) => <PostTaskFeedback key={"P" + task.taskId} calcType={sheetMode} y={task.y} z={task.z} />)}
